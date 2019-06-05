@@ -10,13 +10,16 @@ function TodoList() {
   const [todos, setTodos] = React.useState([]);
 
   function createTodo(newTodo) {
-    setTodos([...todos, { task: newTodo, key: generateKey() }]);
+    setTodos([...todos, { task: newTodo, id: generateKey() }]);
+  }
+  function removeTodo(id) {
+    setTodos(todos.filter(t => t.id !== id));
   }
   return (
     <div>
       <TodoForm createTodo={createTodo} />
       {todos.map(t => (
-        <Todo key={t.key} task={t.task} />
+        <Todo key={t.key} id={t.id} task={t.task} removeTodo={removeTodo} />
       ))}
     </div>
   );
