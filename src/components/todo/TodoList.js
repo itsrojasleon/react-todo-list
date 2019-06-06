@@ -5,6 +5,7 @@ import TodoForm from './TodoForm';
 function generateKey() {
   return Math.floor(Math.random() * (5192 + 1));
 }
+
 function mapping(todos, id, newValue) {
   return todos.map(t => {
     if (t.id === id) {
@@ -39,19 +40,24 @@ function TodoList() {
     setTodos(mapping(todos, id));
   }
   return (
-    <div>
+    <div className="TodoList">
+      <h1>
+        Todo List! <span>A simple React Todo List</span>
+      </h1>
       <TodoForm createTodo={createTodo} />
-      {todos.map(t => (
-        <Todo
-          key={t.key}
-          id={t.id}
-          task={t.task}
-          completed={t.completed}
-          removeTodo={removeTodo}
-          updateTodo={updateTodo}
-          toggleCompleted={toggleCompleted}
-        />
-      ))}
+      <ul>
+        {todos.map(t => (
+          <Todo
+            key={t.key}
+            id={t.id}
+            task={t.task}
+            completed={t.completed}
+            removeTodo={removeTodo}
+            updateTodo={updateTodo}
+            toggleCompleted={toggleCompleted}
+          />
+        ))}
+      </ul>
     </div>
   );
 }

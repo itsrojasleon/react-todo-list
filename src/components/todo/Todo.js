@@ -22,21 +22,29 @@ function Todo(props) {
   return (
     <React.Fragment>
       {isEditing ? (
-        <form onSubmit={handleSubmit}>
-          <input onChange={handleChange} value={value} type="text" />
-          <button onClick={handleUpdate}>Save</button>
-        </form>
+        <div className="Todo">
+          <form className="TodoEditForm" onSubmit={handleSubmit}>
+            <input onChange={handleChange} value={value} type="text" />
+            <button onClick={handleUpdate}>Save</button>
+          </form>
+        </div>
       ) : (
-        <ul>
-          <button onClick={handleUpdate}>Edit</button>
-          <button onClick={handleRemove}>X</button>
+        <div className="Todo">
           <li
             onClick={handleToggle}
-            className={props.completed ? 'completed' : ''}
+            className={props.completed ? 'TodoTask completed' : 'TodoTask'}
           >
             {props.task}
           </li>
-        </ul>
+          <div className="TodoButtons">
+            <button onClick={handleUpdate}>
+              <i className="fas fa-pen" />
+            </button>
+            <button onClick={handleRemove}>
+              <i className="fas fa-trash" />
+            </button>
+          </div>
+        </div>
       )}
     </React.Fragment>
   );

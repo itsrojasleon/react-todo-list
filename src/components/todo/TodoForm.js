@@ -9,13 +9,10 @@ function TodoForm(props) {
     props.createTodo,
   );
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        value={value}
-        onChange={handleChange}
-        type="text"
-        placeholder="new todo"
-      />
+    <form className="TodoForm" onSubmit={handleSubmit}>
+      <label>New todo</label>
+      <input value={value} onChange={handleChange} type="text" placeholder="" />
+      <button>Add</button>
     </form>
   );
 }
