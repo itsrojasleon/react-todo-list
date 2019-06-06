@@ -4,7 +4,10 @@ import useFormInput from '../../hooks/useFormInput';
 function TodoForm(props) {
   // props.createTodo is a function that receives
   // the new todo
-  const { value, handleChange, handleSubmit } = useFormInput(props.createTodo);
+  const { value, handleChange, handleSubmit } = useFormInput(
+    '',
+    props.createTodo,
+  );
   return (
     <form onSubmit={handleSubmit}>
       <input
