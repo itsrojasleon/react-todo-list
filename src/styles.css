@@ -1,4 +1,16 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  background: linear-gradient(90deg, #69b7eb, #b3dbd3, #f4d6db);
+  font-size: 1.1rem;
+  font-family: 'Quicksand', sans-serif;
+  height: 100%;
+}
+/* src/components/TodoList.js */
+.TodoList {
 }

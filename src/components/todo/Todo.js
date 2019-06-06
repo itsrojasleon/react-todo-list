@@ -16,6 +16,9 @@ function Todo(props) {
     setIsEditing(!isEditing);
     props.updateTodo(props.id, value);
   }
+  function handleToggle() {
+    props.toggleCompleted(props.id);
+  }
   return (
     <React.Fragment>
       {isEditing ? (
@@ -24,11 +27,16 @@ function Todo(props) {
           <button onClick={handleUpdate}>Save</button>
         </form>
       ) : (
-        <div>
+        <ul>
           <button onClick={handleUpdate}>Edit</button>
           <button onClick={handleRemove}>X</button>
-          <div>{props.task}</div>
-        </div>
+          <li
+            onClick={handleToggle}
+            className={props.completed ? 'completed' : ''}
+          >
+            {props.task}
+          </li>
+        </ul>
       )}
     </React.Fragment>
   );
