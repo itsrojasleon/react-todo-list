@@ -20,6 +20,11 @@ body {
   margin: 10px auto 0 auto;
   border-radius: 5px;
 }
+@media (max-width: 769px) {
+  .App {
+    width: 80%;
+  }
+}
 
 /* src/components/TodoList.js */
 .TodoList {
